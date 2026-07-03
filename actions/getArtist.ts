@@ -1,0 +1,35 @@
+import { cookies } from 'next/headers';
+import { createServerComponentClient } from '@supabase/auth-helpers-nextjs';
+import { Artist } from '@/types';
+
+export const getArtist = async (id: string): Promise<Artist | null> => {
+  const supabase = createServerComponentClient({ cookies });
+
+  const { data, error } = await supabase
+    .from('artists')
+    .select(
+      `
+      id,
+      name,
+      bio,
+      avatar_path,
+      hero_path,
+      slug,
+      is_popular,
+      created_at,
+      instagram_url,
+      twitter_url,
+      reddit_profile_url,
+      subreddit_url
+    `
+    )
+    .eq('id', id)
+    .single();
+
+  if (error) {
+    console.error('[getArtist] error:', error.message);
+    return null;
+  }
+
+  return data as Artist;
+};
