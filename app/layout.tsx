@@ -18,7 +18,7 @@ const font = Figtree({ subsets: ['latin'] });
 
 //* Describe the web app
 export const metadata = {
-  title: 'Boyfriend ASMR',
+  title: 'Girlfriend ASMR',
   description: 'Listen to your favorite ASMRtists!',
 };
 
