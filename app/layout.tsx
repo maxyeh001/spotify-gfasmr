@@ -66,6 +66,10 @@ export default async function RootLayout({
             </Script>
           </>
       )}
+
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4594604352763722"
+     crossorigin="anonymous"></script>
+        
       </head>
 
       <body className={font.className}>
